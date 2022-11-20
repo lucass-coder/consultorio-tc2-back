@@ -2,6 +2,7 @@ import express from "express";
 import livros from "./livrosRoutes.js";
 import autores from "./autoresRoutes.js";
 import pacientes from "./pacientesRoutes.js";
+import medicos from "./medicosRoutes.js";
 
 const routes = (app) => {
 
@@ -28,6 +29,7 @@ const routes = (app) => {
         livros,
         autores,
         pacientes,
+        medicos
         
     )
 }
