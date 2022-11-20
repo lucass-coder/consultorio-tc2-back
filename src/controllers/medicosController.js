@@ -23,7 +23,7 @@ class MedicosController {
 
         let medico = new medicos();
         medico.nome = req.body['nome'];
-        medico.dataNascimento = req.body['dataNascimento'];
+        medico.idEspecialidade = req.body['idEspecialidade'];
         medico.dataCadastro = dataAtual;
 
         medico.save((err) => {
