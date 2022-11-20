@@ -5,17 +5,34 @@ class PacientesController {
     static listarPacientes = (req, res) => {
         pacientes.find((err, pacientes) => {
             res.status(200).json(pacientes);
-            
+
         })
     }
-    // static listarAutores = (req, res) => {
-    //     autores.find((err, autores) => {
-    //         res.status(200).json(autores);
-    //     })
-    // }
 
+    static cadastrarPaciente = (req, res) => {
 
+        const hoje = new Date();
+        const dia = hoje.getDate().toString().padStart(2, '0');
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const ano = hoje.getFullYear();
+        const hora = hoje.getHours();
+        const minutos = hoje.getMinutes();
+        const dataAtual = `${dia}-${mes}-${ano} as ${hora}:${minutos}`;
+        
+        console.log(dataAtual);
 
+        let paciente = new pacientes();
+        paciente.nome = req.body['nome'];
+        paciente.dataNascimento = req.body['dataNascimento'];
+
+        paciente.save((err) => {
+            if (err) {
+                res.status(500).send({ message: `${err.message} - Falha ao cadastrar Paciente.` })
+            } else {
+                res.status(201).send(paciente.toJSON());
+            }
+        })
+    }
 
     // static listarAutorPorId = (req, res) => {
     //     const id = req.params.id;

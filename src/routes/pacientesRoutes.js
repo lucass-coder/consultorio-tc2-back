@@ -5,8 +5,8 @@ const router = express.Router();
 
 router 
     .get("/pacientes", PacientesController.listarPacientes)
+    .post("/pacientes", PacientesController.cadastrarPaciente)
     // .get("/autores/:id", PacientesController.listarAutorPorId)
-    // .post("/autores", PacientesController.cadastrarAutor)
     // .put("/autores/:id", PacientesController.atualizarAutor)
     // .delete("/autores/:id", PacientesController.excluirAutor)
 
