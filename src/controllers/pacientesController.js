@@ -24,6 +24,7 @@ class PacientesController {
         let paciente = new pacientes();
         paciente.nome = req.body['nome'];
         paciente.dataNascimento = req.body['dataNascimento'];
+        paciente.dataCadastro = dataAtual;
 
         paciente.save((err) => {
             if (err) {
@@ -35,7 +36,6 @@ class PacientesController {
     }
 
     static excluirPaciente = (req, res) => {
-        console.log(req.params)
         const { id } = req.params;
         pacientes.findByIdAndDelete(id, (err) => {
             if(!err) {
@@ -45,6 +45,18 @@ class PacientesController {
             }
         })
     }
+
+     static atualizarPaciente = (req, res) => {
+            const id = req.params.id;
+    
+            pacientes.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+                if (!err) {
+                    res.status(200).send({ message: 'Paciente atualizado com sucesso' })
+                } else {
+                    res.status(500).send({ message: err.message })
+                }
+            })
+        }
 
     // static listarAutorPorId = (req, res) => {
     //     const id = req.params.id;

@@ -7,6 +7,7 @@ router
     .get("/pacientes", PacientesController.listarPacientes)
     .post("/pacientes", PacientesController.cadastrarPaciente)
     .delete("/pacientes/:id", PacientesController.excluirPaciente)
+    .put("/pacientes/:id/:nome/:dataNascimento", PacientesController.atualizarPaciente)
     // .get("/autores/:id", PacientesController.listarAutorPorId)
     // .put("/autores/:id", PacientesController.atualizarAutor)
     // .delete("/autores/:id", PacientesController.excluirAutor)
