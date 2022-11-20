@@ -34,6 +34,18 @@ class PacientesController {
         })
     }
 
+    static excluirPaciente = (req, res) => {
+        console.log(req.params)
+        const { id } = req.params;
+        pacientes.findByIdAndDelete(id, (err) => {
+            if(!err) {
+                res.status(200).send({ message: 'Paciente removido com sucesso' })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
     // static listarAutorPorId = (req, res) => {
     //     const id = req.params.id;
 
