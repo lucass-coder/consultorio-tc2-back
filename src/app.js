@@ -7,6 +7,7 @@ db.once("open", () => {
     console.log("Conexão com o banco feita com sucesso");
 })
 
+
 const app = express();
 
 app.use(express.json());
