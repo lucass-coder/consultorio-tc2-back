@@ -51,12 +51,12 @@ class MedicosController {
         let medico = new medicos();
         medico.id = req.params.id
         medico.nome = req.params.nome
-        medico.dataNascimento = req.params.dataNascimento
+        medico.idEspecialidade = req.params.idEspecialidade
             // const id = req.params.id;
 
              console.log(medico);
     
-            medicos.findByIdAndUpdate(medico.id, {nome: medico.nome, dataNascimento: medico.dataNascimento}, (err) => {
+            medicos.findByIdAndUpdate(medico.id, {nome: medico.nome, idEspecialidade: medico.idEspecialidade}, (err) => {
                 if (!err) {
                     res.status(200).send({ message: 'Paciente atualizado com sucesso' })
                 } else {
