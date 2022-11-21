@@ -11,29 +11,47 @@ class LivroController {
         })
     }
 
-    // static listarLivroPorId = (req, res) => {
-    //     const id = req.params.id;
 
-    //     consultas.findById(id)
-    //     .populate('autor', 'nome')
-    //     .exec((err, consultas) => {
+    static cadastrarConsulta = (req, res) => {
+        
+
+        let consulta = new consultas();
+
+        console.log(req.body)
+
+        consulta.paciente = req.body['paciente'];
+        consulta.medico = req.body['medico'];
+        consulta.data = req.body['data'];
+
+        consulta.save((err) => {
+            if (err) {
+                res.status(500).send({ message: `${err.message} - Falha ao cadastrar Consulta.` })
+            } else {
+                res.status(201).send(consulta.toJSON());
+            }
+        })
+    }
+
+    static excluirConsulta = (req, res) => {
+        const { id } = req.params;
+        consultas.findByIdAndDelete(id, (err) => {
+            if(!err) {
+                res.status(200).send({ message: 'Consulta removida com sucesso' })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+    // static cadastrarConsulta = (req, res) => {
+    //     let consulta = new consultas(req.body);
+
+    //     consulta.save((err) => {
+
     //         if (err) {
-    //             res.status(400).send({ message: `${err.message} - Id do livro não localizado` })
+    //             res.status(500).send({ message: `${err.message} - Falha ao cadastrar consulta.` })
     //         } else {
-    //             res.status(200).send(consultas);
-    //         }
-    //     })
-    // }
-
-    // static cadastrarLivro = (req, res) => {
-    //     let livro = new consultas(req.body);
-
-    //     livro.save((err) => {
-
-    //         if (err) {
-    //             res.status(500).send({ message: `${err.message} - Falha ao cadastrar livro.` })
-    //         } else {
-    //             res.status(201).send(livro.toJSON());
+    //             res.status(201).send(consulta.toJSON());
     //         }
     //     })
     // }
