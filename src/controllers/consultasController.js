@@ -21,11 +21,14 @@ class LivroController {
         consulta.medico = req.body['medico'];
         consulta.data = req.body['data'];
 
+        console.log(req.body['paciente'])
+        console.log(req.body['medico'])
+
         consulta.save((err) => {
             if (err) {
                 res.status(500).send({ message: `${err.message} - Falha ao cadastrar Consulta.` })
             } else {
-                res.status(201).send(consulta.toJSON());
+                res.status(201).send({ message: 'Consulta criada com sucesso' });
             }
         })
     }
@@ -40,50 +43,6 @@ class LivroController {
             }
         })
     }
-
-    // static cadastrarConsulta = (req, res) => {
-    //     let consulta = new consultas(req.body);
-
-    //     consulta.save((err) => {
-
-    //         if (err) {
-    //             res.status(500).send({ message: `${err.message} - Falha ao cadastrar consulta.` })
-    //         } else {
-    //             res.status(201).send(consulta.toJSON());
-    //         }
-    //     })
-    // }
-
-    // static atualizarLivro = (req, res) => {
-    //     const id = req.params.id;
-
-    //     consultas.findByIdAndUpdate(id, { $set: req.body }, (err) => {
-    //         if (!err) {
-    //             res.status(200).send({ message: 'Livro atualizado com sucesso' })
-    //         } else {
-    //             res.status(500).send({ message: err.message })
-    //         }
-    //     })
-    // }
-
-    // static excluirLivro = (req, res) => {
-    //     const { id } = req.params;
-    //     consultas.findByIdAndDelete(id, (err) => {
-    //         if(!err) {
-    //             res.status(200).send({ message: 'Livro removido com sucesso' })
-    //         } else {
-    //             res.status(500).send({ message: err.message })
-    //         }
-    //     })
-    // }
-
-    // static listarLivroPorEditora = (req, res) => {
-    //     const editora = req.query.editora;
-
-    //     consultas.find({'editora': editora}, {}, (err, consultas) => {
-    //         res.status(200).send(consultas);
-    //     })
-    // }
 
 }
 

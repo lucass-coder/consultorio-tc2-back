@@ -28,7 +28,7 @@ class PacientesController {
             if (err) {
                 res.status(500).send({ message: `${err.message} - Falha ao cadastrar Paciente.` })
             } else {
-                res.status(201).send(paciente.toJSON());
+                res.status(201).send({ message: 'Paciente cadastrado com sucesso' });
             }
         })
     }

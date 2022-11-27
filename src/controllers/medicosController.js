@@ -28,9 +28,9 @@ class MedicosController {
 
         medico.save((err) => {
             if (err) {
-                res.status(500).send({ message: `${err.message} - Falha ao cadastrar Paciente.` })
+                res.status(500).send({ message: `${err.message} - Falha ao cadastrar Médico.` })
             } else {
-                res.status(201).send(medico.toJSON());
+                res.status(201).send({ message: 'Médico cadastrado com sucesso' });
             }
         })
     }
@@ -39,7 +39,7 @@ class MedicosController {
         const { id } = req.params;
         medicos.findByIdAndDelete(id, (err) => {
             if(!err) {
-                res.status(200).send({ message: 'Paciente removido com sucesso' })
+                res.status(200).send({ message: 'Médico removido com sucesso' })
             } else {
                 res.status(500).send({ message: err.message })
             }
@@ -55,7 +55,7 @@ class MedicosController {
     
             medicos.findByIdAndUpdate(medico.id, {nome: medico.nome, idEspecialidade: medico.idEspecialidade}, (err) => {
                 if (!err) {
-                    res.status(200).send({ message: 'Paciente atualizado com sucesso' })
+                    res.status(200).send({ message: 'Medico atualizado com sucesso' })
                 } else {
                     res.status(500).send({ message: err.message })
                 }
