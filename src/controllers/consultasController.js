@@ -6,8 +6,30 @@ class LivroController {
         consultas.find()
         .populate('paciente')
         .populate('medico')
-        .exec((err, consultas) => {
-            res.status(200).json(consultas);
+        .exec((err, consultasList) => {
+            for(var i = 0; i < consultasList.length; i++){
+                if(consultasList[i].paciente == null){
+                    console.log(consultasList[i]._id.toString())
+                    consultas.findByIdAndDelete(consultasList[i]._id.toString(), (err) => {
+                        if(!err) {
+                            console.log('Deu certo excluir')
+                        } else {
+                            console.log('Deu Ruim excluir')
+                        }
+                    })
+                }
+                if(consultasList[i].medico == null){
+                    console.log(consultasList[i]._id.toString())
+                    consultas.findByIdAndDelete(consultasList[i]._id.toString(), (err) => {
+                        if(!err) {
+                            console.log('Deu certo excluir')
+                        } else {
+                            console.log('Deu Ruim excluir')
+                        }
+                    })
+                }
+            }
+            res.status(200).json(consultasList);
         })
     }
 
@@ -35,6 +57,8 @@ class LivroController {
 
     static excluirConsulta = (req, res) => {
         const { id } = req.params;
+        console.log(id);
+        console.log(req.params);
         consultas.findByIdAndDelete(id, (err) => {
             if(!err) {
                 res.status(200).send({ message: 'Consulta removida com sucesso' })
