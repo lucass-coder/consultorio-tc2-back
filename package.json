@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
     "expess": "^0.0.1-security",
     "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.6"
   }
 }

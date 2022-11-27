@@ -19,8 +19,6 @@ class PacientesController {
         const minutos = hoje.getMinutes();
         const dataAtual = `${dia}-${mes}-${ano} as ${hora}:${minutos}`;
         
-        console.log(dataAtual);
-
         let paciente = new pacientes();
         paciente.nome = req.body['nome'];
         paciente.dataNascimento = req.body['dataNascimento'];
@@ -52,9 +50,6 @@ class PacientesController {
         paciente.id = req.params.id
         paciente.nome = req.params.nome
         paciente.dataNascimento = req.params.dataNascimento
-            // const id = req.params.id;
-
-             console.log(paciente);
     
             pacientes.findByIdAndUpdate(paciente.id, {nome: paciente.nome, dataNascimento: paciente.dataNascimento}, (err) => {
                 if (!err) {

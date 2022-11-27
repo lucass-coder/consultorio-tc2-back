@@ -7,6 +7,7 @@ import especialidades from "./especialidadesRoutes.js";
 import consultas from "./consultasRoutes.js";
 import auth from "./authRoutes.js";
 
+
 const routes = (app) => {
 
     app.all('/*', function (req, res, next) {

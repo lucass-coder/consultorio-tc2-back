@@ -52,9 +52,6 @@ class MedicosController {
         medico.id = req.params.id
         medico.nome = req.params.nome
         medico.idEspecialidade = req.params.idEspecialidade
-            // const id = req.params.id;
-
-             console.log(medico);
     
             medicos.findByIdAndUpdate(medico.id, {nome: medico.nome, idEspecialidade: medico.idEspecialidade}, (err) => {
                 if (!err) {

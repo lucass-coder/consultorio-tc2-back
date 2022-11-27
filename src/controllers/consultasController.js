@@ -17,8 +17,6 @@ class LivroController {
 
         let consulta = new consultas();
 
-        console.log(req.body)
-
         consulta.paciente = req.body['paciente'];
         consulta.medico = req.body['medico'];
         consulta.data = req.body['data'];
