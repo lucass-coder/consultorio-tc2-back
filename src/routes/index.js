@@ -5,6 +5,7 @@ import pacientes from "./pacientesRoutes.js";
 import medicos from "./medicosRoutes.js";
 import especialidades from "./especialidadesRoutes.js";
 import consultas from "./consultasRoutes.js";
+import auth from "./authRoutes.js";
 
 const routes = (app) => {
 
@@ -33,7 +34,8 @@ const routes = (app) => {
         pacientes,
         medicos,
         especialidades,
-        consultas
+        consultas,
+        auth
         
     )
 }
