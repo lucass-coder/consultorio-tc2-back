@@ -11,7 +11,7 @@ class UserController {
         usuario.login = req.body['login']
         usuario.senha = req.body['senha']
 
-        const token = jwt.sign({ userId: 1 }, SECRET, { expiresIn: 300000 });
+        const token = jwt.sign({ userId: 1 }, SECRET, { expiresIn: 3000 });
 
         users.findOne({ login: usuario.login })
             .populate('login', 'senha')
@@ -37,7 +37,8 @@ class UserController {
         usuario.login = req.body['login']
         usuario.senha = req.body['senha']
 
-        const token = jwt.sign({ userId: 1 }, SECRET, { expiresIn: 300000 });
+        // 300000 = 50 minutos
+        const token = jwt.sign({ userId: 1 }, SECRET, { expiresIn: 300000 }); 
         users.findOne({ login: usuario.login, senha: usuario.senha })
             .populate('login', 'senha')
             .exec((err, login) => {
