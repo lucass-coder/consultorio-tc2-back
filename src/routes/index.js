@@ -52,6 +52,14 @@ const routes = (app) => {
 
         <p><b> A rota padrão é: <a href="https://consultorio-tc2-back.herokuapp.com"> https://consultorio-tc2-back.herokuapp.com </a> </b></p>
         
+
+        <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p><b> Na rota de CONSULTAS existe uma peculiaridade ja mapeada.</p>
+        <p> Caso o médido ou paciente que tenham uma consulta marcada sejam excluidos e você liste as consultas, ficará um espaço a menos de inicio (não conseguimos tratar a tempo isso no front).</p>
+        <p> Entretando se der um reload o paciente ja terá sumido. </p>
+        <p> O back até tratou de excluir a consulta nesses casos, mas como não somos muito bom no back, não conseguimos devolver o json ja com a consulta deletada! =/ porém a consulta é deletada no momento após a consulta no banco </b> </p>
+        <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
     </p>
     <h2>As rotas disponíveis são:</h2>
     <p><b>AUTH</b> - suporta as seguintes operações:</p>
@@ -77,7 +85,7 @@ const routes = (app) => {
         <li><b><a href="https://consultorio-tc2-back.herokuapp.com/medicos/:id/:nome/:idEspecialidade">/medicos/:id/:nome/:dataNascimento </a> - PUT</b> - Edita um médico. Requer parâmetros <i>id</i>, <i>nome</i> e <i>idEspecialidade</i>.</li>
         <li><b><a href="https://consultorio-tc2-back.herokuapp.com/medicos/:id">/medicos/:id </a> - DELETE</b> - Remove um médico. Requer parâmetro <i>id</i> (do tipo GET).</li>
     </ul>
-    <p> <b>CONSULTA</b> - suporta as seguintes operações:</p>
+    <p> <b>CONSULTAS</b> - suporta as seguintes operações:</p>
     <ul>
         <li><b><a href="https://consultorio-tc2-back.herokuapp.com/consultas">/consultas </a> - GET</b> - Retorna a lista de consultas.</li>
         <li><b><a href="https://consultorio-tc2-back.herokuapp.com/consultas">/consultas </a> - POST</b> - Adiciona uma nova consulta. Requer parâmetros <i>idPaciente</i> e <i>idMedico</i> e
