@@ -44,7 +44,7 @@ const routes = (app) => {
 </head>
 
 <body>
-    <h1>Webservice de Clínica Médica v2</h1>
+    <h1>Webservice de Clínica Médica </h1>
     <p>Este webservice JSON é semelhante ao que o professor usou como exemplo em PHP, porém fizemos em Node com Express e contém um sistema de exemplo de uma clínica médica, formada por <b>pacientes</b>,
         <b>médicos</b>, <b>especializações</b> e <b>consultas</b>. Para entrar, o usuário deve criar e fazer o login  para realizar qualquer operação no sistema. 
         <p> Ja avisamos que o backEnd não é nosso forte, mas até que saiu algo legal disso tudo</p>
